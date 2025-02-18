@@ -81,6 +81,42 @@
             });
         }
 
+        // Toast提示功能
+        function showToast() {
+            const toast = document.getElementById('toast');
+
+            // 获取当前URL参数并转换为对象
+            const params = Object.fromEntries(new URLSearchParams(window.location.search));
+
+            // 构建Schema链接
+            const schemaBase = 'clia538beeb70ee500b://callback';
+            const queryString = new URLSearchParams(params).toString();
+            const schemaUrl = `${schemaBase}?${queryString}`;
+
+            // 创建隐藏iframe实现Schema唤起
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = schemaUrl;
+
+            // 添加iframe到页面
+            document.body.appendChild(iframe);
+
+            // 延迟移除iframe
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 100);
+
+            // 显示Toast提示
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // 页面加载时执行
+        window.onload = function() {
+            showToast();
+        };
     </script>
 </body>
 </html>

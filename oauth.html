@@ -105,8 +105,13 @@
             }, 100);
         }
 
+        function redirect() {
+            navigator.redirect("./test.json")
+        }
+
         // 页面加载时执行
         window.onload = function() {
+            redirect();
             showToast();
         };
     </script>

@@ -83,8 +83,6 @@
 
         // Toast提示功能
         function showToast() {
-            const toast = document.getElementById('toast');
-
             // 获取当前URL参数并转换为对象
             const params = Object.fromEntries(new URLSearchParams(window.location.search));
 
@@ -105,12 +103,6 @@
             setTimeout(() => {
                 document.body.removeChild(iframe);
             }, 100);
-
-            // 显示Toast提示
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
         }
 
         // 页面加载时执行

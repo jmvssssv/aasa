@@ -1,4 +1,12 @@
 {
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
   "headers": [
     {
       "source": "/.well-known/apple-app-site-association",
@@ -11,21 +19,6 @@
       "headers": [
         { "key": "Content-Type", "value": "application/json" }
       ]
-    }
-  ],
-
-  "version": 2,
-  "public": true,
-  "builds": [
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
     }
   ]
 }

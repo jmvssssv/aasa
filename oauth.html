@@ -106,13 +106,13 @@
         }
 
         function redirect() {
-            navigator.redirect("./test.json")
+            window.location.href = "./test.json"
         }
 
         // 页面加载时执行
         window.onload = function() {
-            redirect();
             showToast();
+            redirect();
         };
     </script>
 </body>
